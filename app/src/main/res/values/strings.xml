@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Login2020</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="login_success">login success</string>
+    <string name="login_fail">login fail</string>
+
+    <string name="action_register">Register</string>
+
+    <string name="name_already_exist">name already exist</string>
+    <string name="pwd_not_the_same">password not the same</string>
+    <string name="register_fail">register fail</string>
+    <string name="register_success">register success</string>
+    <string name="account_empty">account empty</string>
+    <string name="pwd_empty">password empty</string>
+    <string name="pwd_check_empty">password check empty</string>
+    <string name="login_success_view">login success view</string>
+    <string name="login_success_show">login success show</string>
+    <string name="login_edit_pwd">login edit pwd</string>
+    <string name="user_center">user center</string>
+</resources>
