@@ -26,10 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.login2020.R;
-import com.example.login2020.ui.login.LoginViewModel;
-import com.example.login2020.ui.login.LoginViewModelFactory;
 import com.example.login2020.ui.register.RegisterActivity;
-import com.example.login2020.ui.login.UserDataManager;
 import com.example.login2020.ui.user.UserActivity;
 
 public class LoginActivity extends AppCompatActivity {
@@ -177,11 +174,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 // 切换到 register.xml
-                System.out.println("registerButton");
+//                System.out.println("registerButton");
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
-                System.out.println("registerButton");
-
+//                System.out.println("registerButton");
+                // 老子加的，看看对改善崩溃有没有好处
+                finish();
 
             }
         });

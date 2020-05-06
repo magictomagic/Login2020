@@ -25,4 +25,8 @@
     <string name="login_success_show">login success show</string>
     <string name="login_edit_pwd">login edit pwd</string>
     <string name="user_center">user center</string>
+
+    <string name="video_inf_layout">视频列表</string>
+    <string name="play_list">play list</string>
+
 </resources>

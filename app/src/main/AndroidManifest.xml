@@ -22,6 +22,13 @@
             android:label="@string/action_register"/>
         <activity android:name=".ui.user.UserActivity"
             android:label="@string/user_center"/>
+        <activity android:name=".ui.user.videoInfList"
+            android:label="@string/play_list"/>
+        <activity android:name="io.vov.vitamio.activity.InitActivity"
+            android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
 
     </application>
 
