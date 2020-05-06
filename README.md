@@ -4,19 +4,19 @@
 ## 2. [Configure RTMP server][1].
 
 ## 3. [Progress][2].
-正在完成
+正在完成...
 ### Plane
 **老戴：**
 
  在本项目的基础上实现：
 
-  ctivity:
+    activity:
 
- com/example/login2020/ui/user/videoInfList.java
+    com/example/login2020/ui/user/videoInfList.java
 
-  View:
+    View:
 
- layout/video_inf_list.xml
+    layout/video_inf_list.xml
 
  要求：
 
