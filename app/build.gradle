@@ -1,4 +1,10 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+
+//apply plugin: "androidx.navigation.safeargs"
 
 android {
     compileSdkVersion 29
@@ -32,6 +38,10 @@ android {
             }
         }
     }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
 
 }
 
@@ -46,8 +56,35 @@ dependencies {
 
     implementation 'com.jcraft:jsch:0.1.55'
     implementation 'me.neavo:vitamio:4.2.2'
+    implementation 'cn.jzvd:jiaozivideoplayer:7.3.0'
+
+    // 必须：足以适应大多数设备
+    implementation 'tv.danmaku.ijk.media:ijkplayer-java:0.8.8'
+    implementation 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.8.8'
+
+    // 可选：其他架构
+    implementation 'tv.danmaku.ijk.media:ijkplayer-armv5:0.8.8'
+    implementation 'tv.danmaku.ijk.media:ijkplayer-arm64:0.8.8'
+    implementation 'tv.danmaku.ijk.media:ijkplayer-x86:0.8.8'
+    implementation 'tv.danmaku.ijk.media:ijkplayer-x86_64:0.8.8'
+
+    // 实验性功能：对ExoPlayer的封装，封装成功IMediaPlayer
+    implementation 'tv.danmaku.ijk.media:ijkplayer-exo:0.8.8'
+
+
+    implementation  'com.android.support:support-annotations:28.0.0'
+
+    //implementation 'androidx.recyclerview:recyclerview:1.0.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    // Skip this if you don't want to use integration libraries or configure Glide.
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation "androidx.core:core-ktx:+"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+}
+repositories {
+    mavenCentral()
 }

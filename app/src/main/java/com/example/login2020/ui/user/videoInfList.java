@@ -1,64 +1,71 @@
 package com.example.login2020.ui.user;
 
-import android.os.Bundle;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
+import android.os.Build;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TableLayout;
+
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.login2020.widget.media.AndroidMediaController;
+import com.example.login2020.widget.media.IjkVideoView;
+
+import tv.danmaku.ijk.media.player.IjkMediaPlayer;
+
 import com.example.login2020.R;
+public class videoInfList extends AppCompatActivity{
+    private IjkVideoView mVideoView;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import com.example.login2020.ui.login.LoginActivity;
+    private AndroidMediaController mMediaController;
+    private TableLayout mHudView;
 
-import io.vov.vitamio.MediaPlayer;
-import io.vov.vitamio.widget.MediaController;
-import io.vov.vitamio.widget.VideoView;
 
-import static android.app.ProgressDialog.show;
-
-public class videoInfList extends AppCompatActivity {
-    // test display on view
-    static List<String> t = new ArrayList<String>();
-
-    // videoInfList a = new videoInfList();
-    // System.out.println(a.t);
-    public videoInfList() {
-        t.add("0a2bcec0876a4d62b33fc0fcea6b5f04.mp4");
-        t.add("30cdaacc47bb4aaab3ad91b1e8600184.mp4");
-        t.add("ad286f25b01849e5b4832519b7d5ba76.mp4");
-    }
-    private String path;
-    private VideoView mVideoView;
-    //rtmp://58.200.131.2:1935/livetv/hunantv
-//        rtmp://149.248.57.125:1935/vod/ad286f25b01849e5b4832519b7d5ba76.mp4
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (!io.vov.vitamio.LibsChecker.checkVitamioLibs(this))
-            return;
-        setContentView(R.layout.video_inf_list);
-        path = "rtmp://58.200.131.2:1935/livetv/hunantv";
-        mVideoView = (VideoView) findViewById(R.id.vitamio_videoView);
-        mVideoView.setVideoChroma(MediaPlayer.VIDEOCHROMA_RGB565);
+        setContentView(R.layout.activity_main);
+
+        //定义的直播地址
+        String path = "rtmp://149.248.57.125:1935/vod/ad286f25b01849e5b4832519b7d5ba76.mp4";
+
+        //初始化IjkMediaPlayer
+        IjkMediaPlayer.loadLibrariesOnce(null);
+        IjkMediaPlayer.native_profileBegin("libijkplayer.so");
+
+        //定义IjkVideoView
+        mVideoView = (IjkVideoView) findViewById(R.id.video_view);
+        //定义的播放按钮的layout，用来加载定义好的播放界面
+        mHudView = (TableLayout) findViewById(R.id.hud_view);
+
+        //这里使用的是Demo中提供的AndroidMediaController类控制播放相关操作
+        mMediaController = new AndroidMediaController(this, false);
+        ActionBar actionBar = getSupportActionBar();
+        mMediaController.setSupportActionBar(actionBar);
+
+        mVideoView = (IjkVideoView) findViewById(R.id.video_view);
+        mVideoView.setMediaController(mMediaController);
+        mVideoView.setHudView(mHudView);
+
+        //设置videopath，开始播放
         mVideoView.setVideoPath(path);
+        mVideoView.start();
 
-        mVideoView.setMediaController(new MediaController(this));
 
-        mVideoView.requestFocus();
-//        HashMap<String, String> options = new HashMap<String, String>();
+//        public void onWindowFocusChanged(boolean hasFocus) {
+//        super.onWindowFocusChanged(hasFocus);
+//        if (hasFocus && Build.VERSION.SDK_INT >= 19) {
+//            View decorView = getWindow().getDecorView();
+//            decorView.setSystemUiVisibility(
+//                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+//                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+//                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+//                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+//                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+//                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+//        }
+//    }
 
-//        mediaPlayer.setDataSource(path, options);
-
-        mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer mediaPlayer) {
-                mediaPlayer.setPlaybackSpeed(1.0f);
-            }
-        });
-
-    }
-
+}
 }

@@ -11,6 +11,9 @@ import com.example.login2020.R;
 import com.example.login2020.controller.getVideoLink;
 import com.example.login2020.ui.login.LoginActivity;
 
+import cn.jzvd.Jzvd;
+import cn.jzvd.JzvdStd;
+
 public class UserActivity extends AppCompatActivity {
 //    private Button mReturnButton;
     @Override
@@ -20,6 +23,7 @@ public class UserActivity extends AppCompatActivity {
         final Button mReturnButton = findViewById(R.id.returnback);
         final Button gotoVideoList = findViewById(R.id.goto_video_inf_list);
         gotoVideoList.setEnabled(true);
+
         gotoVideoList.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -33,6 +37,7 @@ public class UserActivity extends AppCompatActivity {
             }
         });
     }
+
     public void back_to_login(View view) {
         Intent intent3 = new Intent(UserActivity.this, LoginActivity.class) ;
         startActivity(intent3);
