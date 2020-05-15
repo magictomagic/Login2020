@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -26,9 +27,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.login2020.R;
+import com.example.login2020.controller.conGetLinkKu;
+import com.example.login2020.controller.getVideoLink;
 import com.example.login2020.ui.register.RegisterActivity;
 import com.example.login2020.ui.user.UserActivity;
 
+import static com.example.login2020.controller.conGetLinkKu.videoNameList;
+import static com.example.login2020.controller.conGetLinkKu.videoNameList;
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
@@ -49,6 +54,11 @@ public class LoginActivity extends AppCompatActivity {
         final TextView logininSuccessShow = findViewById(R.id.login_success_show);
         final View loginSuccessView = findViewById(R.id.login_success_view);
         final CheckBox mRememberCheck = findViewById(R.id.Login_Remember);
+
+        getVideoLink.ThreadGetLink tgl = new getVideoLink.ThreadGetLink();
+        tgl.setName("backThread");
+        tgl.start();
+        Log.d("video", "tgl.start()");
 
         // 如果不加这句，按钮就是灰色的，点不了。
         registerButton.setEnabled(true);
@@ -193,5 +203,14 @@ public class LoginActivity extends AppCompatActivity {
 
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
+    }
+    public class ThreadGetLink extends Thread{
+        @Override
+        public void run(){
+            conGetLinkKu cg = new conGetLinkKu();
+            cg.getVideoNameList();
+            Log.d("video", "String.valueOf(videoNameList)");
+            Log.d("video", String.valueOf(videoNameList));
+        }
     }
 }

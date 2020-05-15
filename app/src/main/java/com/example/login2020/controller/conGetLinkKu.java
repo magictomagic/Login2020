@@ -24,7 +24,7 @@ public class conGetLinkKu {
 
     public static int totalVideos;
 
-    static List<String> videoNameList = new ArrayList<String>();
+    public static List<String> videoNameList = new ArrayList<String>();
 
     private static String protocol(){
         String pro = protocalName;
