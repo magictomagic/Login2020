@@ -59,7 +59,9 @@ public class LoginActivity extends AppCompatActivity {
         tgl.setName("backThread");
         tgl.start();
         Log.d("video", "tgl.start()");
-
+        if(videoNameList.size() != 0){
+            Toast.makeText(LoginActivity.this, getString(R.string.have_got_lists),Toast.LENGTH_SHORT).show();
+        }
         // 如果不加这句，按钮就是灰色的，点不了。
         registerButton.setEnabled(true);
         // 注意区别 .setClickable 定时让按键自己按

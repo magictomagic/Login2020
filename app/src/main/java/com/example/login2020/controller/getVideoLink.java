@@ -4,9 +4,13 @@ import android.util.Log;
 import android.widget.TableLayout;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.login2020.ui.login.LoginActivity;
 import com.example.login2020.widget.media.AndroidMediaController;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import com.example.login2020.R;
 import com.example.login2020.widget.media.IjkVideoView;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
@@ -21,24 +25,13 @@ public class getVideoLink extends AppCompatActivity {
     protected void onCreate(Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
         setContentView(R.layout.getlink);
-        // TODO: 创建一个线程更新 videoNameList
-//        ThreadGetLink tgl = new ThreadGetLink();
-//        tgl.setName("backThread");
-//        tgl.start();
-//        Log.d("video", "tgl.start()");
         while (videoNameList.size() == 0){
-
             Log.d("video", "is 0");
         }
-        // videoNameList 同步锁？
-
-
-        // TODO: 当 videoNameList.size() != 0时执行下面的线程
         ListView listView = (ListView) findViewById(R.id.listView);
         ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,videoNameList);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener((parent, view, position, id) -> {
-            // TODO: shift to corresponding video videoNameList
             setContentView(R.layout.activity_main);
             IjkMediaPlayer.loadLibrariesOnce(null);
             IjkMediaPlayer.native_profileBegin("libijkplayer.so");
@@ -54,7 +47,10 @@ public class getVideoLink extends AppCompatActivity {
             mVideoView.setMediaController(mMediaController);
             mVideoView.setHudView(mHudView);
             //设置videopath，开始播放
-            mVideoView.setVideoPath(path);
+// TODO 根据点击返回index
+            Log.d("video1", String.valueOf((int) id));
+            Log.d("video1", videoNameList.get((int) id));
+            mVideoView.setVideoPath(conGetLinkKu.jointLink((int) id));
             mVideoView.start();
         });
     }

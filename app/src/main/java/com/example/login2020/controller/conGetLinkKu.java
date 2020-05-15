@@ -1,10 +1,14 @@
 package com.example.login2020.controller;
 
+import android.widget.Toast;
+
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.example.login2020.R;
+import com.example.login2020.ui.login.LoginActivity;
 import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.ChannelExec;
 import com.jcraft.jsch.JSch;
@@ -80,7 +84,6 @@ public class conGetLinkKu {
             }
             channel.disconnect();
             session.disconnect();
-            System.out.println("DONE");
 
         }catch (JSchException e) {
             // TODO Auto-generated catch block
@@ -90,11 +93,11 @@ public class conGetLinkKu {
         }
     }
 
-    public String getVideoName(int index) {
+    public static String getVideoName(int index) {
         return videoNameList.get(index);
     }
 
-    public String jointLink(int index){
+    public static String jointLink(int index){
         return protocol() + "://" + address() + ":" + ffmpegPort + "/" + application() + "/" +
                 getVideoName(index);
     }
