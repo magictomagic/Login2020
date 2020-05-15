@@ -2,6 +2,7 @@ package com.example.login2020.ui.user;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -27,12 +28,17 @@ public class UserActivity extends AppCompatActivity {
         gotoVideoList.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                getVideoLink g = new getVideoLink();
-                g.getVideoNameList();
+//                getVideoLink g = new getVideoLink();
+//                g.getVideoNameList();
+//                g.jointLink(1);   // this cause flash down
+                Intent intentL = new Intent(UserActivity.this, getVideoLink.class);
+                startActivity(intentL);
 
 
-                Intent intent = new Intent(UserActivity.this, videoInfList.class);
-                startActivity(intent);
+
+                // below two, success run videoInfList to play video
+//                Intent intent = new Intent(UserActivity.this, videoInfList.class);
+//                startActivity(intent);
 
             }
         });
