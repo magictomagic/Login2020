@@ -214,6 +214,7 @@
     <string name="pref_key_last_directory"></string>
     <string name="name_lists">name List</string>
     <string name="have_got_lists">已经获得List</string>
+    <string name="re_flash">刷新列表</string>
 
 
 </resources>

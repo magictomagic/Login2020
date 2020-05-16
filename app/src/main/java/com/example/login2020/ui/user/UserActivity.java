@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,24 +24,21 @@ public class UserActivity extends AppCompatActivity {
         setContentView(R.layout.user);
         final Button mReturnButton = findViewById(R.id.returnback);
         final Button gotoVideoList = findViewById(R.id.goto_video_inf_list);
+        final Button reflash = findViewById(R.id.reflash);
+        reflash.setEnabled(true);
+        reflash.setOnClickListener(v -> {
+            getVideoLink.ThreadGetLink tgl = new getVideoLink.ThreadGetLink();
+            tgl.setName("backThread");
+            tgl.start();
+            Toast.makeText(this,"刷新成功", Toast.LENGTH_SHORT).show();
+        });
+
         gotoVideoList.setEnabled(true);
 
-        gotoVideoList.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-//                getVideoLink g = new getVideoLink();
-//                g.getVideoNameList();
-//                g.jointLink(1);   // this cause flash down
-                Intent intentL = new Intent(UserActivity.this, getVideoLink.class);
-                startActivity(intentL);
+        gotoVideoList.setOnClickListener(v -> {
+            Intent intentL = new Intent(UserActivity.this, getVideoLink.class);
+            startActivity(intentL);
 
-
-
-                // below two, success run videoInfList to play video
-//                Intent intent = new Intent(UserActivity.this, videoInfList.class);
-//                startActivity(intent);
-
-            }
         });
     }
 
