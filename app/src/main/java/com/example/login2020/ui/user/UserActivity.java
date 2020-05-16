@@ -2,7 +2,6 @@ package com.example.login2020.ui.user;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -12,9 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.login2020.R;
 import com.example.login2020.controller.getVideoLink;
 import com.example.login2020.ui.login.LoginActivity;
-
-import cn.jzvd.Jzvd;
-import cn.jzvd.JzvdStd;
 
 public class UserActivity extends AppCompatActivity {
 //    private Button mReturnButton;

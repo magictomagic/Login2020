@@ -1,6 +1,8 @@
 package com.example.login2020.controller;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
 import androidx.appcompat.app.ActionBar;
@@ -21,10 +23,6 @@ public class getVideoLink extends AppCompatActivity {
     protected void onCreate(Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
         setContentView(R.layout.getlink);
-
-
-
-
         while (videoNameList.size() == 0){
             Log.d("video", "is 0");
         }
@@ -51,6 +49,8 @@ public class getVideoLink extends AppCompatActivity {
             Log.d("video1", videoNameList.get((int) id));
             mVideoView.setVideoPath(conGetLinkKu.jointLink((int) id));
             mVideoView.start();
+
+
         });
     }
     public static class ThreadGetLink extends Thread{
@@ -63,7 +63,20 @@ public class getVideoLink extends AppCompatActivity {
 //            Toast.makeText(getVideoLink.this,"刷新成功",Toast.LENGTH_SHORT).show();
         }
     }
-
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus && Build.VERSION.SDK_INT >= 19) {
+            View decorView = getWindow().getDecorView();
+            decorView.setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+        }
+    }
 
 }
 
