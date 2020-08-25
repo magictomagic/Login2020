@@ -14,6 +14,6 @@
 
 
 
-[1]:https://github.com/magictomagic/magictomagic.github.io/blob/master/_posts/2020-05-05-%E5%BE%85%E5%AE%8C%E5%96%84%E4%B8%8E%E6%80%9D%E8%B7%AF.md
-[2]:https://github.com/magictomagic/magictomagic.github.io/blob/master/_posts/2020-05-05-%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B.md
-[3]:https://github.com/magictomagic/magictomagic.github.io/blob/master/_posts/2020-05-05-%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B.md#%E5%AE%9E%E7%8E%B0%E7%BB%93%E6%9E%9C
+[1]:https://github.com/magictomagic/magictomagic.github.io/blob/master/_posts/2020-05-04-CentOS-FFmpeg-%E6%B5%81%E5%AA%92%E4%BD%93%E6%92%AD%E6%94%BE.md
+[2]:https://github.com/magictomagic/magictomagic.github.io/blob/master/_posts/2020-05-05-MyFirstAndroidAPP-%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B.md
+[3]:https://github.com/magictomagic/magictomagic.github.io/blob/master/_posts/2020-05-05-MyFirstAndroidAPP-%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B.md#%E5%AE%9E%E7%8E%B0%E7%BB%93%E6%9E%9C
